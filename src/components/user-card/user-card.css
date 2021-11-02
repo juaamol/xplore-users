@@ -1,0 +1,23 @@
+:root {
+  --card-width: 100%;
+  --card-image-size: 50%;
+  --card-position: row;
+}
+
+.card {
+  max-width: var(--card-width);
+  flex-direction: var(--card-position);
+}
+
+.card img {
+  width: var(--card-image-size);
+  height: var(--card-image-size);
+}
+
+@media (min-width: 576px) {
+  :root {
+    --card-width: 16rem;
+    --card-image-size: var(--card-width);
+    --card-position: column;
+  }
+}
