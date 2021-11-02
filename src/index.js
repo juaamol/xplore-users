@@ -1,26 +1,21 @@
 import 'bootstrap';
-import _ from 'lodash';
-import printMe from './print.js';
-import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import navbar from './components/navbar/navbar.html';
+import './style.css';
 
-async function getComponent() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
-  const { default: _ } = await import('lodash');
-
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-
-  btn.innerHTML = 'Click me and check the console!';
-  btn.classList.add('ml-2');
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-  return element;
+function setComponents() {
+  document.body.appendChild(createNavbarComponent());
 }
 
-getComponent().then((component) => {
-  document.body.appendChild(component);
-});
+function createNavbarComponent() {
+  return createElementFromHTML(navbar);
+}
+
+function createElementFromHTML(htmlString) {
+  const div = document.createElement('div');
+  div.innerHTML = htmlString
+
+  return div;
+}
+
+setComponents();

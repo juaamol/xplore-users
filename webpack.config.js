@@ -35,17 +35,17 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.html$/i,
+        test: /\.html$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'html-loader',
             options: {
-              name: '[name].[ext]'
-            },
+              minimize: true,
+            }
           }
         ],
         exclude: path.resolve(__dirname, 'src/index.html')
-      },
+      }
     ],
   },
 };
