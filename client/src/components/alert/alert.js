@@ -2,19 +2,26 @@ import { createElementFromHTML } from '../../utils/element-from-html';
 import alertHtml from './alert.html';
 
 export function createAlertComponent(text, type) {
-    const alert = createElementFromHTML(alertHtml);
-    const alertContainer = alert.querySelector('#alert-container');
-    const textElement = alert.querySelector('#alert-text');
+  const alert = createElementFromHTML(alertHtml);
+  const alertContainer = alert.querySelector('#alert-container');
+  const textElement = alert.querySelector('#alert-text');
 
-    textElement.innerHTML = text;
+  textElement.innerHTML = text;
 
-    if (type == 'warning') {
-        alertContainer.classList.add('alert-warning')
+  switch (type) {
+    case 'warning': {
+      alertContainer.classList.add('alert-warning');
+      break;
     }
-
-    if (type == 'danger') {
-        alertContainer.classList.add('alert-danger')
+    case 'danger': {
+      alertContainer.classList.add('alert-danger');
+      break
     }
+    default: {
+      alertContainer.classList.add('alert-primary');
+      break;
+    }
+  }
 
-    return alert;
+  return alert;
 }

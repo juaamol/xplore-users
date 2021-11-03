@@ -8,6 +8,7 @@ export function createShowMoreComponent(handlers) {
         'text-primary',
         'text-center',
         'w-100',
+        'py-3',
         'show-more'
     );
 
