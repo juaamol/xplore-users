@@ -13,12 +13,12 @@ const DB_USERS = database.generateUsers(USERS_GENERATED);
 
 function getUsers(page, sortBy, name) {
     const filtered = operations.filterByName(DB_USERS, name);
-    const filteredPage = operations.getUsersPage(filtered, page, PAGE_SIZE);
     const sorted = sortBy == SORT_BY.score
-        ? operations.sortUsersByScore(filteredPage)
-        : operations.sortUsersByName(filteredPage);
+        ? operations.sortUsersByScore(filtered)
+        : operations.sortUsersByName(filtered);
+    const usersPage = operations.getUsersPage(sorted, page, PAGE_SIZE);
 
-    return sorted;
+    return usersPage;
 }
 
 module.exports = {
