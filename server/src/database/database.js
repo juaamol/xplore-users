@@ -9,10 +9,11 @@ const SORT_BY = {
     score: 'score',
 }
 
+const DB_USERS = database.generateUsers(USERS_GENERATED);
+
 function getUsers(page, sortBy, name) {
-    const users = database.generateUsers(USERS_GENERATED);
-    const filtered = operations.filterByName(users, name);
-    const filteredPage = operations.getUsersPage(filtered, 0, PAGE_SIZE);
+    const filtered = operations.filterByName(DB_USERS, name);
+    const filteredPage = operations.getUsersPage(filtered, page, PAGE_SIZE);
     const sorted = sortBy == SORT_BY.score
         ? operations.sortUsersByScore(filteredPage)
         : operations.sortUsersByName(filteredPage);
