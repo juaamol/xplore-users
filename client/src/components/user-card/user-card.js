@@ -5,7 +5,7 @@ import './user-card.css';
 export function createUserCardComponent(userSource) {
     const user = userSource || {};
     const card = createElementFromHTML(userCardHtml);
-    card.classList.add('card', 'card-size');
+    card.classList.add('card', 'card-size', 'mb-sm-5');
 
     card.setAttribute('data-id', user.id)
     card.querySelector('[data-id="image"]')

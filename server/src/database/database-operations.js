@@ -3,7 +3,7 @@ function sortUsersByName(users = []) {
 }
 
 function sortUsersByScore(users = []) {
-    return users.sort((userA, userB) => userA.score - userB.score);
+    return users.sort((userA, userB) => userB.score - userA.score);
 }
 
 function getUsersPage(users = [], page, pageSize) {

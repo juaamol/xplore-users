@@ -1,8 +1,7 @@
 const database = require('../../database/database');
 
 function postUsers(req, res) {
-    const body = req.body;
-    const query = fillEmptyValuesQuery(body.query || {});
+    const query = fillEmptyValuesQuery(req.body || {});
     const users = database.getUsers(query.page, query.sortBy, query.name);
 
     res.type('application/json')

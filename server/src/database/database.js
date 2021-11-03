@@ -9,15 +9,16 @@ const SORT_BY = {
     score: 'score',
 }
 
-function getUsers(page, sortBy, name) {
-    const users = database.generateUsers(USERS_GENERATED);
-    const filtered = operations.filterByName(users, name);
-    const filteredPage = operations.getUsersPage(filtered, 0, PAGE_SIZE);
-    const sorted = sortBy == SORT_BY.score
-        ? operations.sortUsersByScore(filteredPage)
-        : operations.sortUsersByName(filteredPage);
+const DB_USERS = database.generateUsers(USERS_GENERATED);
 
-    return sorted;
+function getUsers(page, sortBy, name) {
+    const filtered = operations.filterByName(DB_USERS, name);
+    const sorted = sortBy == SORT_BY.score
+        ? operations.sortUsersByScore(filtered)
+        : operations.sortUsersByName(filtered);
+    const usersPage = operations.getUsersPage(sorted, page, PAGE_SIZE);
+
+    return usersPage;
 }
 
 module.exports = {
