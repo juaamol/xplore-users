@@ -1,11 +1,12 @@
 :root {
   --card-width: 100%;
-  --card-image-size: 50%;
+  --card-image-size: 9rem;
   --card-position: row;
 }
 
 .card {
   max-width: var(--card-width);
+  min-width: var(--card-image-size);
   flex-direction: var(--card-position);
 }
 

@@ -4,7 +4,11 @@ export function createCardsListComponent(cardsList) {
     const list = cardsList || [];
     const emptyListElement = document.createElement('div');
 
-    emptyListElement.classList.add('card-deck');
+    emptyListElement.classList.add(
+        'card-deck',
+        'justify-content-center',
+        'mx-3'
+    );
 
     const listElement = list.reduce((accumulatorElement, user) => {
         accumulatorElement.appendChild(createUserCardComponent(user));
