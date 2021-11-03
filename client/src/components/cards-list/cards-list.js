@@ -4,6 +4,7 @@ export function createCardsListComponent(cardsList) {
     const list = cardsList || [];
     const emptyListElement = document.createElement('div');
 
+    emptyListElement.setAttribute('id', 'cards-list');
     emptyListElement.classList.add(
         'card-deck',
         'justify-content-center',
@@ -18,4 +19,3 @@ export function createCardsListComponent(cardsList) {
 
     return listElement;
 }
-
