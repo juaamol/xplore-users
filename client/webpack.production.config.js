@@ -17,6 +17,12 @@ module.exports = {
       template: 'src/index.html'
     }),
   ],
+  resolve: {
+    alias: {
+      [path.resolve(__dirname, "src/environment/environment.js")]:
+        path.resolve(__dirname, "src/environment/environment.production.js")
+    }
+  },
   module: {
     rules: [
       {
